@@ -46,11 +46,11 @@ public class Organization {
         this.email = email;
     }
 
-    public String getAddres() {
+    public String getAddress() {
         return address;
     }
-    public void setAddres(String addres) {
-        this.address = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDiscription() {
