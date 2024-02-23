@@ -14,32 +14,32 @@ public class MainController {
     private UserRepository userRepository;
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam Integer id,
+    public @ResponseBody String addNewUser (@RequestParam Integer coffe_point_id,
                                             @RequestParam String name,
                                             @RequestParam String logo,
                                             @RequestParam String description,
                                             @RequestParam String email,
                                             @RequestParam String address,
-                                            @RequestParam String login,
-                                            @RequestParam String password) {
+                                            @RequestParam Integer brand_id,
+                                            @RequestParam String work_time) {
 
-        Organization n = new Organization();
+        Coffe_point n = new Coffe_point();
 
-        n.setId(id);
+        n.setCoffe_point_id(coffe_point_id);
         n.setLogo(logo);
-        n.setDiscription(description);
+        n.setDescription(description);
         n.setAddress(address);
-        n.setLogin(login);
+        n.setBrand_id(brand_id);
         n.setName(name);
         n.setEmail(email);
-        n.setPassword(password);
+        n.setWork_time(work_time);
 
         userRepository.save(n);
         return "Saved";
     }
 
     @GetMapping(path="/hello")
-    public @ResponseBody Iterable<Organization> getAllUsers() {
+    public @ResponseBody Iterable<Coffe_point> getAllUsers() {
         return userRepository.findAll();
     }
 
@@ -49,7 +49,7 @@ public class MainController {
 
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 
-    public void createRole(@ModelAttribute Organization formData){
+    public void createRole(@ModelAttribute Coffe_point formData){
         System.out.printf(formData.toString());
 
     }
