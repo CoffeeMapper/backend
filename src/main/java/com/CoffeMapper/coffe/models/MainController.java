@@ -1,5 +1,6 @@
 package com.CoffeMapper.coffe.models;
 
+import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -13,35 +14,36 @@ public class MainController {
 
     private UserRepository userRepository;
 
-    @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam Integer coffe_point_id,
-                                            @RequestParam String name,
-                                            @RequestParam String logo,
-                                            @RequestParam String description,
-                                            @RequestParam String email,
-                                            @RequestParam String address,
-                                            @RequestParam Integer brand_id,
-                                            @RequestParam String work_time) {
+//    @PostMapping(path="/add")
+//    public @ResponseBody String addNewUser (@RequestParam Integer coffe_point_id,
+//                                            @RequestParam String name,
+//                                            @RequestParam String logo,
+//                                            @RequestParam String description,
+//                                            @RequestParam String email,
+//                                            @RequestParam String address,
+//                                            @RequestParam Integer brand_id,
+//                                            @RequestParam String work_time) {
+//
+//        Coffe_point n = new Coffe_point();
+//
+//        n.setCoffe_point_id(coffe_point_id);
+//        n.setLogo(logo);
+//        n.setDescription(description);
+//        n.setAddress(address);
+//        n.setBrand_id(brand_id);
+//        n.setName(name);
+//        n.setEmail(email);
+//        n.setWork_time(work_time);
+//
+//        userRepository.save(n);
+//        return "Saved";
+//    }
 
-        Coffe_point n = new Coffe_point();
-
-        n.setCoffe_point_id(coffe_point_id);
-        n.setLogo(logo);
-        n.setDescription(description);
-        n.setAddress(address);
-        n.setBrand_id(brand_id);
-        n.setName(name);
-        n.setEmail(email);
-        n.setWork_time(work_time);
-
-        userRepository.save(n);
-        return "Saved";
-    }
-
-    @GetMapping(path="/hello")
+    @GetMapping(path="/api/v1/coffee")
     public @ResponseBody Iterable<Coffe_point> getAllUsers() {
         return userRepository.findAll();
     }
+
 
     @RequestMapping(value="/organization",
 
@@ -54,5 +56,6 @@ public class MainController {
 
     }
 }
+
 //curl http://localhost:8081/add -d name=First -d email=someemail@someemailprovider.com
 //curl http://localhost:8081/hello /

@@ -83,5 +83,4 @@ public class Coffe_point {
         this.work_time = work_time;
     }
 
-
 }
