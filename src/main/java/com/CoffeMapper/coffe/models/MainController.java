@@ -55,4 +55,4 @@ public class MainController {
     }
 }
 //curl http://localhost:8081/add -d name=First -d email=someemail@someemailprovider.com
-//curl http://localhost:8081/hello
+//curl http://localhost:8081/hello /
