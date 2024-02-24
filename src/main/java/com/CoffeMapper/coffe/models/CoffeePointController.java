@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+
+
 @RestController
-@RequestMapping("/api/v1/coffee")
+@RequestMapping("/api/"+VersionApp.version+"/coffee")
 public class CoffeePointController {
+
 
     @Autowired
     private UserRepository coffeePointRepository;

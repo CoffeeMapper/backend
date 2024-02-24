@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(path="")
 public class MainController {
+
+
     @Autowired
 
     private UserRepository userRepository;
 
-    @GetMapping(path = "/api/v1/coffee")
+    @GetMapping(path = "/api/"+VersionApp.version+"/coffee")
     public @ResponseBody Iterable<Coffe_point> getAllUsers() {
         return userRepository.findAll();
     }
