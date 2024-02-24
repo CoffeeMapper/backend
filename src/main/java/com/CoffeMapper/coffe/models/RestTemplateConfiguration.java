@@ -1,3 +1,5 @@
+//для будущего Post запроса, код не удалять
+
 //package com.CoffeMapper.coffe.models;
 //
 //import org.springframework.context.annotation.Bean;
