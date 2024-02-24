@@ -14,6 +14,12 @@ public class MainController {
 
     private UserRepository userRepository;
 
+    @GetMapping(path = "/api/v1/coffee")
+    public @ResponseBody Iterable<Coffe_point> getAllUsers() {
+        return userRepository.findAll();
+    }
+}
+
 //    @PostMapping(path="/add")
 //    public @ResponseBody String addNewUser (@RequestParam Integer coffe_point_id,
 //                                            @RequestParam String name,
@@ -39,23 +45,19 @@ public class MainController {
 //        return "Saved";
 //    }
 
-    @GetMapping(path="/api/v1/coffee")
-    public @ResponseBody Iterable<Coffe_point> getAllUsers() {
-        return userRepository.findAll();
-    }
 
+//    @RequestMapping(value="/organization",
+//
+//            method=RequestMethod.POST,
+//
+//            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//
+//    public void createRole(@ModelAttribute Coffe_point formData){
+//        System.out.printf(formData.toString());
+//
+//    }
+//}
 
-    @RequestMapping(value="/organization",
-
-            method=RequestMethod.POST,
-
-            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-
-    public void createRole(@ModelAttribute Coffe_point formData){
-        System.out.printf(formData.toString());
-
-    }
-}
 
 //curl http://localhost:8081/add -d name=First -d email=someemail@someemailprovider.com
 //curl http://localhost:8081/hello /
