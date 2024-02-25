@@ -21,8 +21,8 @@ public class CoffeePointController {
     private UserRepository coffeePointRepository;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Coffe_point> getCoffeePointById(@PathVariable long id) {
-        Optional<Coffe_point> coffeePoint = coffeePointRepository.findById(Math.toIntExact(id));
+    public ResponseEntity<Coffe_point> getCoffeePointById(@PathVariable int id) {
+        Optional<Coffe_point> coffeePoint = coffeePointRepository.findById(id);
         if (coffeePoint.isPresent()) {
             return new ResponseEntity<>(coffeePoint.get(), HttpStatus.OK);
         } else {
